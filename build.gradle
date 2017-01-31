@@ -1,0 +1,55 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'org.flywaydb:flyway-gradle-plugin:3.2.1'
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.0.6'
+    }
+}
+
+apply plugin: 'org.flywaydb.flyway'
+apply plugin: 'kotlin'
+apply plugin: 'war'
+
+repositories {
+    jcenter()
+}
+
+flyway {
+    url = 'jdbc:postgresql://localhost:5432/collapsardb'
+    user = 'postgres'
+    password = 'a'
+}
+
+ext {
+    kotlinVersion = '1.0.6'
+    springVersion = '4.3.5.RELEASE'
+    springDataVersion = '1.10.7.RELEASE'
+    jacksonVersion = '2.8.6'
+    hibernateVersion = '5.0.2.Final'
+    postgreSqlVersion = '9.4.1212'
+    dbcpVersion = '2.0'
+    servletVersion = '3.0.1'
+    slf4jVersion = '1.7.22'
+    logbackVersion = '1.1.9'
+    junitVersion = '4.12'
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    compile "org.springframework:spring-core:$springVersion"
+    compile "org.springframework:spring-webmvc:$springVersion"
+    compile "org.springframework.data:spring-data-jpa:$springDataVersion"
+    compile "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion"
+    compile "org.hibernate:hibernate-entitymanager:$hibernateVersion"
+    compile "org.postgresql:postgresql:$postgreSqlVersion"
+    compile "org.apache.commons:commons-dbcp2:$dbcpVersion"
+    compile "javax.servlet:javax.servlet-api:$servletVersion"
+    compile "org.slf4j:slf4j-api:$slf4jVersion"
+    compile "ch.qos.logback:logback-classic:$logbackVersion"
+
+    testCompile "junit:junit:$junitVersion"
+    testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion"
+}

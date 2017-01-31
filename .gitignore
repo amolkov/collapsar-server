@@ -1,9 +1,12 @@
-# Java class files
-*.class
-
 # Generated files
 bin/
+gen/
 target/
+build/
+out/
+
+# Gradle files
+.gradle/
 
 # IDE
 .classpath
@@ -11,8 +14,3 @@ target/
 .settings/
 .idea/
 *.iml
-
-# Package Files #
-*.jar
-*.war
-*.ear
