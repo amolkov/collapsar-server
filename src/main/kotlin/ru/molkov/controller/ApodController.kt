@@ -1,21 +1,18 @@
 package ru.molkov.controller
 
-import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.web.bind.annotation.*
-import ru.molkov.entity.Apod
-import ru.molkov.service.ApodService
-import ru.molkov.setting.UrlConstants
+import org.springframework.format.annotation.DateTimeFormat
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RequestParam
+import org.springframework.web.bind.annotation.RestController
+import ru.molkov.manager.ApodManager
+import ru.molkov.setting.Constants
+import java.util.*
 
 @RestController
-@RequestMapping(UrlConstants.APOD_URL)
-class ApodController {
+@RequestMapping(Constants.APOD_URL)
+class ApodController(val apodManager: ApodManager) {
 
-    @Autowired
-    lateinit var apodService: ApodService
-
-    @PostMapping(UrlConstants.APOD_SEARCH_URL)
-    fun findAll(): List<Apod> = apodService.findAll()
-
-    @GetMapping(UrlConstants.APOD_ID_URL)
-    fun findOne(@PathVariable id: Long): Apod = apodService.findOne(id)
+    @GetMapping
+    fun findByDate(@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") date: Date) = apodManager.findByDate(date)
 }

@@ -1,18 +1,12 @@
 package ru.molkov.service
 
-import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.data.domain.Sort
 import org.springframework.stereotype.Service
 import ru.molkov.entity.Apod
 import ru.molkov.repository.ApodRepository
+import java.util.*
 
 @Service
-class ApodServiceImpl : ApodService {
+class ApodServiceImpl(val apodRepository: ApodRepository) : ApodService {
 
-    @Autowired
-    private lateinit var apodRepository: ApodRepository
-
-    override fun findAll(sort: Sort): List<Apod> = apodRepository.findAll(sort)
-
-    override fun findOne(id: Long): Apod = apodRepository.findOne(id)
+    override fun findByDate(date: Date): Apod? = apodRepository.findByDate(date)
 }

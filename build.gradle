@@ -34,6 +34,8 @@ ext {
     servletVersion = '3.0.1'
     slf4jVersion = '1.7.22'
     logbackVersion = '1.1.9'
+    okHttpVersion = '3.6.0'
+    retrofitVersion = '2.1.0'
     junitVersion = '4.12'
 }
 
@@ -49,6 +51,9 @@ dependencies {
     compile "javax.servlet:javax.servlet-api:$servletVersion"
     compile "org.slf4j:slf4j-api:$slf4jVersion"
     compile "ch.qos.logback:logback-classic:$logbackVersion"
+    compile "com.squareup.okhttp3:okhttp:$okHttpVersion"
+    compile "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    compile "com.squareup.retrofit2:converter-jackson:$retrofitVersion"
 
     testCompile "junit:junit:$junitVersion"
     testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion"

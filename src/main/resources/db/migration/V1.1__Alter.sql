@@ -1,0 +1,1 @@
+ALTER TABLE public.apod ADD created_date TIMESTAMPTZ NULL;

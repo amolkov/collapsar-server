@@ -8,5 +8,3 @@ CREATE TABLE public.apod (
     url TEXT,
     hd_url TEXT
 );
-
-CREATE UNIQUE INDEX "seq_apod_id" ON public.apod (id);

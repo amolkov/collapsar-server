@@ -1,39 +1,53 @@
 package ru.molkov.entity
 
+import ru.molkov.entity.api.ApodDto
 import java.util.*
 import javax.persistence.*
 
 @Entity
 @Table(name = "apod")
-class Apod {
+data class Apod(
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    var id: Long? = null
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @Column(name = "id")
+        val id: Long?,
 
-    @Column(name = "copyright")
-    var copyright: String = ""
+        @Column(name = "copyright")
+        val copyright: String,
 
-    @Column(name = "date")
-    var date: Date = Date()
+        @Column(name = "date")
+        val date: Date,
 
-    @Column(name = "explanation")
-    var explanation: String = ""
+        @Column(name = "explanation")
+        val explanation: String,
 
-    @Column(name = "media_type")
-    var media_type: String = ""
+        @Column(name = "media_type")
+        val mediaType: String,
 
-    @Column(name = "title")
-    var title: String = ""
+        @Column(name = "title")
+        val title: String,
 
-    @Column(name = "url")
-    var url: String = ""
+        @Column(name = "url")
+        val url: String,
 
-    @Column(name = "hd_url")
-    var hdUrl: String = ""
+        @Column(name = "hd_url")
+        val urlHd: String,
 
-    override fun toString(): String {
-        return "Apod(id=$id, copyright='$copyright', date=$date, explanation='$explanation', media_type='$media_type', title='$title', url='$url', hdUrl='$hdUrl')"
+        @Column(name = "created_date")
+        val createdDate: Date = Date()
+) {
+    private constructor() : this(null, "", Date(), "", "", "", "", "", Date())
+
+    object ModelMapper {
+        fun from(dto: ApodDto): Apod =
+                Apod(id = null,
+                        copyright = dto.copyright,
+                        date = dto.date,
+                        explanation = dto.explanation,
+                        mediaType = dto.mediaType,
+                        title = dto.title,
+                        url = dto.url,
+                        urlHd = dto.urlHd)
     }
 }
