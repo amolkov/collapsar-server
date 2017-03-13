@@ -1,12 +1,12 @@
-package ru.molkov.service
+package ru.molkov.collapsarserver.service
 
 import org.springframework.stereotype.Service
-import ru.molkov.config.AppConfig
-import ru.molkov.entity.Apod
-import ru.molkov.repository.ApodRepository
-import ru.molkov.service.api.NasaApi
-import ru.molkov.setting.Constants
-import ru.molkov.setting.asString
+import ru.molkov.collapsarserver.config.AppConfig
+import ru.molkov.collapsarserver.entity.Apod
+import ru.molkov.collapsarserver.repository.ApodRepository
+import ru.molkov.collapsarserver.service.api.NasaApi
+import ru.molkov.collapsarserver.setting.Constants
+import ru.molkov.collapsarserver.setting.asString
 import java.util.*
 
 @Service

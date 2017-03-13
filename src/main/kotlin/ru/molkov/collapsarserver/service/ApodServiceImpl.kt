@@ -1,8 +1,8 @@
-package ru.molkov.service
+package ru.molkov.collapsarserver.service
 
 import org.springframework.stereotype.Service
-import ru.molkov.entity.Apod
-import ru.molkov.repository.ApodRepository
+import ru.molkov.collapsarserver.entity.Apod
+import ru.molkov.collapsarserver.repository.ApodRepository
 import java.util.*
 
 @Service

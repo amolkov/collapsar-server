@@ -1,10 +1,10 @@
-package ru.molkov.repository
+package ru.molkov.collapsarserver.repository
 
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Query
 import org.springframework.data.repository.query.Param
 import org.springframework.stereotype.Repository
-import ru.molkov.entity.Apod
+import ru.molkov.collapsarserver.entity.Apod
 import java.util.*
 
 @Repository

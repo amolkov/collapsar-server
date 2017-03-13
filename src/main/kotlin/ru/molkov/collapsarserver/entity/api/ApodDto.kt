@@ -1,4 +1,4 @@
-package ru.molkov.entity.api
+package ru.molkov.collapsarserver.entity.api
 
 import com.fasterxml.jackson.annotation.JsonFormat
 import com.fasterxml.jackson.annotation.JsonProperty

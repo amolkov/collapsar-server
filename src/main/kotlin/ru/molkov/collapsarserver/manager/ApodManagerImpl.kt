@@ -1,9 +1,9 @@
-package ru.molkov.manager
+package ru.molkov.collapsarserver.manager
 
 import org.springframework.stereotype.Service
-import ru.molkov.entity.Apod
-import ru.molkov.service.ApodService
-import ru.molkov.service.NasaWebService
+import ru.molkov.collapsarserver.entity.Apod
+import ru.molkov.collapsarserver.service.ApodService
+import ru.molkov.collapsarserver.service.NasaWebService
 import java.util.*
 
 @Service

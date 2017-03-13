@@ -1,4 +1,4 @@
-package ru.molkov.service
+package ru.molkov.collapsarserver.service
 
 import okhttp3.OkHttpClient
 import retrofit2.Converter

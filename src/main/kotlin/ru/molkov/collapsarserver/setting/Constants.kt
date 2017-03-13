@@ -1,4 +1,4 @@
-package ru.molkov.setting
+package ru.molkov.collapsarserver.setting
 
 class Constants {
     companion object {

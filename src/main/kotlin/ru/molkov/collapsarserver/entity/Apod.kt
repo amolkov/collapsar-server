@@ -1,6 +1,6 @@
-package ru.molkov.entity
+package ru.molkov.collapsarserver.entity
 
-import ru.molkov.entity.api.ApodDto
+import ru.molkov.collapsarserver.entity.api.ApodDto
 import java.util.*
 import javax.persistence.*
 

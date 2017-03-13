@@ -1,4 +1,4 @@
-package ru.molkov.config
+package ru.molkov.collapsarserver.config
 
 import org.springframework.web.WebApplicationInitializer
 import org.springframework.web.context.ContextLoaderListener

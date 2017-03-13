@@ -1,4 +1,4 @@
-package ru.molkov.config
+package ru.molkov.collapsarserver.config
 
 import org.apache.commons.dbcp2.BasicDataSource
 import org.hibernate.cfg.Environment
@@ -13,7 +13,7 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter
 import org.springframework.transaction.PlatformTransactionManager
 import org.springframework.transaction.annotation.EnableTransactionManagement
 import org.springframework.util.ClassUtils
-import ru.molkov.Application
+import ru.molkov.collapsarserver.Application
 import java.util.*
 import javax.persistence.EntityManagerFactory
 import javax.sql.DataSource

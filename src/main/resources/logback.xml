@@ -15,5 +15,5 @@
         <appender-ref ref="STDOUT"/>
     </root>
 
-    <logger name="ru.molkov" level="ALL"/>
+    <logger name="ru.molkov.collapsarserver" level="ALL"/>
 </configuration>
