@@ -1,6 +1,7 @@
 # Collapsar server
 
 [![Build status](https://travis-ci.org/amolkov/collapsar-server.svg?branch=master)](https://travis-ci.org/amolkov/collapsar-server)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/31ee4fef810a4383b5f5eeaafd20b949)](https://www.codacy.com/app/amolkov/collapsar-server?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=amolkov/collapsar-server&amp;utm_campaign=Badge_Grade)
 
 A simple web service for Astronomy Picture of the Day (APOD) written in Kotlin.
 
