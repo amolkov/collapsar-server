@@ -2,6 +2,7 @@ package ru.molkov.collapsarserver.entity.api
 
 import com.fasterxml.jackson.annotation.JsonFormat
 import com.fasterxml.jackson.annotation.JsonProperty
+import ru.molkov.collapsarserver.entity.Apod
 import java.util.*
 
 data class ApodDto(
@@ -30,4 +31,15 @@ data class ApodDto(
 
         @JsonProperty("service_version")
         val serviceVersion: String
+)
+
+fun ApodDto.toDomain(): Apod = Apod(
+        id = null,
+        copyright = copyright,
+        date = date,
+        explanation = explanation,
+        mediaType = mediaType,
+        title = title,
+        url = url,
+        urlHd = urlHd
 )

@@ -25,16 +25,16 @@ import javax.sql.DataSource
 open class JpaConfig {
 
     @Value("\${dataSource.driverClassName}")
-    private lateinit var driver: String
+    private lateinit var dsDriverClassName: String
 
     @Value("\${dataSource.url}")
-    private lateinit var url: String
+    private lateinit var dsUrl: String
 
     @Value("\${dataSource.username}")
-    private lateinit var username: String
+    private lateinit var dsUsername: String
 
     @Value("\${dataSource.password}")
-    private lateinit var password: String
+    private lateinit var dsPassword: String
 
     @Value("\${hibernate.dialect}")
     private lateinit var dialect: String
@@ -43,35 +43,32 @@ open class JpaConfig {
     private lateinit var showSql: String
 
     @Bean
-    open fun dataSource(): DataSource {
-        val dataSource = BasicDataSource()
-        dataSource.driverClassName = driver
-        dataSource.url = url
-        dataSource.username = username
-        dataSource.password = password
-
-        return dataSource
-    }
+    open fun dataSource(): DataSource =
+            BasicDataSource().apply {
+                driverClassName = dsDriverClassName
+                url = dsUrl
+                username = dsUsername
+                password = dsPassword
+            }
 
     @Bean
-    open fun entityManagerFactory(dataSource: DataSource): LocalContainerEntityManagerFactoryBean {
-        val entityManagerFactoryBean = LocalContainerEntityManagerFactoryBean()
-        entityManagerFactoryBean.dataSource = dataSource
-
+    open fun entityManagerFactory(ds: DataSource): LocalContainerEntityManagerFactoryBean {
         val entities = ClassUtils.getPackageName(Application::class.java)
-        entityManagerFactoryBean.setPackagesToScan(entities)
-        entityManagerFactoryBean.jpaVendorAdapter = HibernateJpaVendorAdapter()
+        val jpaProperties = Properties().apply {
+            put(Environment.DIALECT, dialect)
+            put(Environment.SHOW_SQL, showSql)
+        }
 
-        val jpaProperties = Properties()
-        jpaProperties.put(Environment.DIALECT, dialect)
-        jpaProperties.put(Environment.SHOW_SQL, showSql)
-        entityManagerFactoryBean.setJpaProperties(jpaProperties)
+        return LocalContainerEntityManagerFactoryBean().apply {
+            dataSource = ds
+            jpaVendorAdapter = HibernateJpaVendorAdapter()
 
-        return entityManagerFactoryBean
+            setPackagesToScan(entities)
+            setJpaProperties(jpaProperties)
+        }
     }
 
     @Bean
-    open fun transactionManager(entityManagerFactory: EntityManagerFactory): PlatformTransactionManager {
-        return JpaTransactionManager(entityManagerFactory)
-    }
+    open fun transactionManager(entityManagerFactory: EntityManagerFactory): PlatformTransactionManager =
+            JpaTransactionManager(entityManagerFactory)
 }

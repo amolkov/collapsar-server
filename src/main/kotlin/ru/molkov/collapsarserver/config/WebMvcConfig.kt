@@ -16,10 +16,10 @@ import ru.molkov.collapsarserver.Application
 open class WebMvcConfig : WebMvcConfigurerAdapter() {
 
     override fun configureMessageConverters(converters: MutableList<HttpMessageConverter<*>>) {
-        val converter = MappingJackson2HttpMessageConverter()
-        converter.objectMapper = ObjectMapper()
-        converter.supportedMediaTypes = listOf(MediaType.APPLICATION_JSON)
-
+        val converter = MappingJackson2HttpMessageConverter().apply {
+            objectMapper = ObjectMapper()
+            supportedMediaTypes = listOf(MediaType.APPLICATION_JSON)
+        }
         converters.add(converter)
     }
 }

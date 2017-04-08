@@ -15,12 +15,13 @@ class WebAppInitializer : WebApplicationInitializer {
 
     @Throws(ServletException::class)
     override fun onStartup(servletContext: ServletContext) {
-        val webApplicationContext = AnnotationConfigWebApplicationContext()
-        webApplicationContext.register(WebMvcConfig::class.java)
+        val webApplicationContext = AnnotationConfigWebApplicationContext().apply {
+            register(WebMvcConfig::class.java)
+        }
 
         servletContext.addListener(ContextLoaderListener(webApplicationContext))
-
-        val servletRegistration = servletContext.addServlet(DISPATCHER, DispatcherServlet(webApplicationContext))
-        servletRegistration.addMapping(DISPATCHER_SERVLET_MAPPING)
+        servletContext.addServlet(DISPATCHER, DispatcherServlet(webApplicationContext)).apply {
+            addMapping(DISPATCHER_SERVLET_MAPPING)
+        }
     }
 }

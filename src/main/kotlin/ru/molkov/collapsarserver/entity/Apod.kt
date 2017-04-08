@@ -1,6 +1,5 @@
 package ru.molkov.collapsarserver.entity
 
-import ru.molkov.collapsarserver.entity.api.ApodDto
 import java.util.*
 import javax.persistence.*
 
@@ -38,16 +37,4 @@ data class Apod(
         val createdDate: Date = Date()
 ) {
     private constructor() : this(null, "", Date(), "", "", "", "", "", Date())
-
-    object ModelMapper {
-        fun from(dto: ApodDto): Apod =
-                Apod(id = null,
-                        copyright = dto.copyright,
-                        date = dto.date,
-                        explanation = dto.explanation,
-                        mediaType = dto.mediaType,
-                        title = dto.title,
-                        url = dto.url,
-                        urlHd = dto.urlHd)
-    }
 }
